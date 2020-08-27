@@ -2,6 +2,9 @@
 
 $accent: orange // Accent Color
 $fontsize: 16px // Body Font Size
+$blue: #1698d9
+$blue-hover: #2ea8e6
+$selected: #d91667
 $textcolor: #333 // Text Color
 $system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
 $roboto: Roboto, sans-serif // Roboto Font Family
@@ -78,7 +81,7 @@ input, textarea
 		border-color: green
 
 html 
-    height: 100%
+	height: 100%
 
 body
 	font-family: $TrebuchetMS
@@ -101,7 +104,7 @@ ul
 	list-style: none
 
 p 
-    margin: 0
+	margin: 0
 
 h1,
 h2,
@@ -145,25 +148,61 @@ h6
 		flex-wrap: wrap
 		justify-content: center
 	&__container
-		margin: 0px 0px 0px 40px
+		margin: 0px 0px 0px 60px
 		&:first-child
 			margin-left: 0
 	&__item
 		width: 320px
 		height: 480px
 		padding: 0px 40px 0px 40px 
-		border: 4px solid #1698d9
+		border: 4px solid $blue
 		background-color: #f2f2f2	
 		border-radius: 15px
 		position: relative
 		overflow: hidden
-		margin-bottom: 15px
+		margin-bottom: 15px	
+		clip-path: polygon(13% 0, 100% 0, 100% 43%, 100% 100%, 43% 100%, 0 100%, 0 75%, 0 10%, 4% 7%)
+		&::before
+			content: ''
+			position: absolute
+			background-color: $blue
+			width: 70px
+			height: 4px
+			transform: rotate(-49deg)
+			left: -16px
+			top: 18px
+		&:hover
+			&::before
+				background-color: $blue-hover
+		&:hover
+			border: 4px solid $blue-hover
+			cursor: pointer
+		&:hover .product__weight
+			background-color: $blue-hover
+		&_active 
+			border: 4px solid $selected
+			&::before
+				background-color: $selected
+			&:hover
+				border: 4px solid $selected
+			&:hover
+				&::before
+					background-color: $selected
+			&:hover .product__weight
+				background-color: $selected
+		&_active .product__weight
+			background-color: $selected
+			
 	&__title	
 		color: #666666
 		font-size: 16px
 		font-weight: 400	
 		// text-align: center
 		margin-top: 24px	
+		&-hovered
+			color: #e62e7a
+			// display: none
+			visibility: hidden
 	&__name
 		font-size: 48px
 		font-weight: 700
@@ -181,7 +220,7 @@ h6
 		height: 81px
 		bottom: 10px
 		right: 10px
-		background-color: #2ea8e6
+		background-color: #1698d9
 		border-radius: 50%
 		text-align: center
 		font-size: 42px
@@ -207,10 +246,44 @@ h6
 		font-size: 13px
 		line-height: 16px
 		a
-			color: #1698d9
+			display: inline-block
+			color: $blue
 			font-weight: 700
+			border-bottom: 1px dashed $blue
+			&:hover
+				color: #2ea8e6
+				text-decoration: none
+		&_selected
+			display: none
 		&_empty
 			color: #ffff66
+			display: none
 
 		
-		
+.show
+	display: block
+
+.hide
+	display: none
+
+.disabled
+	pointer-events: none
+	user-select: none
+	color: #666
+	background-color: #f2f2f2
+	border: 4px solid #b3b3b3
+	&::before
+		background-color: #b3b3b3
+
+.disabled .product__weight
+	background: #b3b3b3
+
+.disabled .product__img
+	opacity: .5
+
+.visible
+	visibility: visible
+
+
+.unvisible 
+	visibility: hidden
