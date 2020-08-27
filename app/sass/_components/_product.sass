@@ -1,0 +1,144 @@
+.product
+	padding: 45px 0px 65px 0px
+	&__slogan	
+		font-family: Exo2, sans-serif
+		font-weight: 100
+		font-size: 36px
+		text-shadow: 0 1px 0 #000000
+		color: #ffffff
+		text-align: center		
+	&__body
+		display: flex
+		align-items: flex-start
+		flex-wrap: wrap
+		justify-content: center
+	&__container
+		margin: 25px 0px 0px 60px
+		&:first-child
+			margin-left: 0
+	&__item
+		width: 320px
+		height: 490px
+		padding: 0px 40px 0px 40px 
+		border: 4px solid $blue
+		background-color: #f2f2f2	
+		border-radius: 15px
+		position: relative
+		overflow: hidden
+		margin-bottom: 15px	
+		clip-path: polygon(13% 0, 100% 0, 100% 43%, 100% 100%, 43% 100%, 0 100%, 0 75%, 0 10%, 4% 7%)
+		&::before
+			content: ''
+			position: absolute
+			background-color: $blue
+			width: 70px
+			height: 4px
+			transform: rotate(-49deg)
+			left: -16px
+			top: 18px
+		&:hover
+			&::before
+				background-color: $blue-hover
+		&:hover
+			border: 4px solid $blue-hover
+			cursor: pointer
+		&:hover .product__weight
+			background-color: $blue-hover
+		&_active 
+			border: 4px solid $selected
+			&::before
+				background-color: $selected
+			&:hover
+				border: 4px solid $selected
+			&:hover
+				&::before
+					background-color: $selected
+			&:hover .product__weight
+				background-color: $selected
+		&_active .product__weight
+			background-color: $selected	
+	&__title	
+		color: #666666
+		font-size: 16px
+		font-weight: 400	
+		margin-top: 24px	
+		&-hovered
+			margin-top: 24px
+			color: #e62e7a
+			display: none
+	&__name
+		font-size: 48px
+		font-weight: 700
+		line-height: 52px
+	&__type
+		font-size: 24px
+		font-weight: 700
+		margin-bottom: 6px
+	&__offer
+		color: #666666
+		font-size: 14px
+	&__weight
+		position: absolute
+		width: 81px
+		height: 81px
+		bottom: 10px
+		right: 10px
+		background-color: #1698d9
+		border-radius: 50%
+		text-align: center
+		font-size: 42px
+		font-weight: 400
+		color: #ffffff
+		padding-top: 2px
+		z-index: 2
+		display: flex
+		flex-direction: column
+		align-items: center
+		span 
+			font-size: 21px
+			line-height: 0px
+	&__img
+		position: absolute
+		left: 0
+		bottom: 0
+	&__action
+		text-align: center
+		text-shadow: 0 1px 0 #000000
+		color: #ffffff
+		font-size: 13px
+		line-height: 16px
+		a
+			display: inline-block
+			color: $blue
+			font-weight: 700
+			border-bottom: 1px dashed $blue
+			&:hover
+				color: #2ea8e6
+				text-decoration: none
+		&_selected
+			display: none
+		&_empty
+			color: #ffff66
+			display: none
+
+		
+.show
+	display: block
+
+.hide
+	display: none
+
+.disabled
+	pointer-events: none
+	user-select: none
+	color: #666
+	background-color: #f2f2f2
+	border: 4px solid #b3b3b3
+	&::before
+		background-color: #b3b3b3
+
+.disabled .product__weight
+	background: #b3b3b3
+
+.disabled .product__img
+	opacity: .5

@@ -332,7 +332,7 @@ body {
   font-weight: normal;
   min-width: 320px;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
   color: #000000; }
 
 img {
@@ -515,12 +515,6 @@ h6 {
 
 .disabled .product__img {
   opacity: .5; }
-
-.visible {
-  visibility: visible; }
-
-.unvisible {
-  visibility: hidden; }
 
 @media (max-width: 739px) {
   .product__container {
