@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
             let itemTitleHovered = document.querySelector(`.product__title-hovered[data-type="${itemData}"]`);
 
         if (this.classList.contains('product__item_active')) {
-            itemTitle.classList.add('unvisible')
-            itemTitleHovered.classList.add('visible')
+            itemTitle.classList.add('hide')
+            itemTitleHovered.classList.add('show')
         } else {
-            itemTitle.classList.remove('unvisible')
-            itemTitleHovered.classList.remove('visible')
+            itemTitle.classList.remove('hide')
+            itemTitleHovered.classList.remove('show')
         }
         
     }
@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (!(this.classList.contains('product__item_active'))) {
             console.log(this)
-            itemTitle.classList.remove('unvisible')
-            itemTitleHovered.classList.remove('visible')
+            itemTitle.classList.remove('hide')
+            itemTitleHovered.classList.remove('show')
         } 
         
     }

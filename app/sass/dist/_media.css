@@ -1,0 +1,17 @@
+@media (max-width: 739px) {
+  .product__container {
+    margin: 15px;
+  }
+  .product__container:first-child {
+    margin: 15px;
+  }
+}
+@media (max-width: 390px) {
+  .wrapper {
+    display: block;
+  }
+
+  .product__slogan {
+    font-size: 30px;
+  }
+}
