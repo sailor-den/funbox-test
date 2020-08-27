@@ -13,19 +13,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   for (var _i2 = 0; _i2 < items.length; _i2++) {
-    items[_i2].addEventListener('mouseleave', handleLeave);
+    items[_i2].addEventListener('click', handleClick2);
   }
 
-  function handleLeave() {
+  for (var _i3 = 0; _i3 < items.length; _i3++) {
+    items[_i3].addEventListener('mouseenter', handleEnter);
+  }
+
+  function handleEnter() {
     var itemData = this.getAttribute('data-type');
     var itemTitle = document.querySelector(".product__title[data-type=\"".concat(itemData, "\"]"));
     var itemTitleHovered = document.querySelector(".product__title-hovered[data-type=\"".concat(itemData, "\"]"));
 
     if (this.classList.contains('product__item_active')) {
-      console.log(this);
       itemTitle.classList.add('unvisible');
       itemTitleHovered.classList.add('visible');
     } else {
+      itemTitle.classList.remove('unvisible');
+      itemTitleHovered.classList.remove('visible');
+    }
+  }
+
+  function handleClick2() {
+    var itemData = this.getAttribute('data-type');
+    var itemTitle = document.querySelector(".product__title[data-type=\"".concat(itemData, "\"]"));
+    var itemTitleHovered = document.querySelector(".product__title-hovered[data-type=\"".concat(itemData, "\"]"));
+
+    if (!this.classList.contains('product__item_active')) {
+      console.log(this);
       itemTitle.classList.remove('unvisible');
       itemTitleHovered.classList.remove('visible');
     }

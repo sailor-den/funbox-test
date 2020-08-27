@@ -12,19 +12,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     for (let i = 0; i < items.length; i++) {
-        items[i].addEventListener('mouseleave', handleLeave)
+        items[i].addEventListener('click', handleClick2)
+    }
+    
+
+    for (let i = 0; i < items.length; i++) {
+        items[i].addEventListener('mouseenter', handleEnter)
     }
 
 
-    function handleLeave () {
-        let itemData = this.getAttribute('data-type');
+    function handleEnter () {
+            let itemData = this.getAttribute('data-type');
             let itemTitle = document.querySelector(`.product__title[data-type="${itemData}"]`);
             let itemTitleHovered = document.querySelector(`.product__title-hovered[data-type="${itemData}"]`);
-            
-        if (this.classList.contains('product__item_active')) {
-            console.log(this)
-            
 
+        if (this.classList.contains('product__item_active')) {
             itemTitle.classList.add('unvisible')
             itemTitleHovered.classList.add('visible')
         } else {
@@ -32,6 +34,18 @@ document.addEventListener('DOMContentLoaded', function() {
             itemTitleHovered.classList.remove('visible')
         }
         
+    }
+
+    function handleClick2 () {
+        let itemData = this.getAttribute('data-type');
+        let itemTitle = document.querySelector(`.product__title[data-type="${itemData}"]`);
+        let itemTitleHovered = document.querySelector(`.product__title-hovered[data-type="${itemData}"]`);
+
+        if (!(this.classList.contains('product__item_active'))) {
+            console.log(this)
+            itemTitle.classList.remove('unvisible')
+            itemTitleHovered.classList.remove('visible')
+        } 
         
     }
 
